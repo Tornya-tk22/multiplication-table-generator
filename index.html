@@ -5,13 +5,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Multiplication Generator</title>
 
   <style>
-
-    /* ===== GLOBAL STYLES ===== */
-
     * {
       margin: 0;
       padding: 0;
@@ -20,97 +16,72 @@
 
     body {
       min-height: 100vh;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       padding: 20px;
-
-      font-family: 'Segoe UI', sans-serif;
-
+      font-family: Arial, sans-serif;
       background: #111827;
       color: #f1f5f9;
     }
 
-
-    /* ===== MAIN CONTAINER ===== */
-
+    /* MAIN CONTAINER */
     .main-container {
       width: 100%;
       max-width: 430px;
-
       text-align: center;
     }
 
-    .main-container h1 {
-      font-size: 26px;
-      font-weight: 650;
-
+    h1 {
+      font-size: 25px;
       margin-bottom: 8px;
     }
 
     .subtitle {
       color: #9ca3af;
       font-size: 14px;
-
       margin-bottom: 25px;
     }
 
-
-    /* ===== MAIN CARD ===== */
-
+    /* MAIN CARD */
     .table-container {
-      padding: 28px 24px;
-
+      padding: 25px 20px;
       background: #1f2937;
-
       border: 1px solid #374151;
-      border-radius: 14px;
+      border-radius: 10px;
     }
 
-    .table-container h2 {
+    h2 {
       font-size: 20px;
       color: #61d6a5;
-
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .description {
       color: #9ca3af;
       font-size: 13px;
-
-      margin-bottom: 23px;
       line-height: 1.5;
+      margin-bottom: 20px;
     }
 
-
-    /* ===== INPUT SECTION ===== */
-
+    /* INPUT SECTION */
     .info-container {
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 12px;
     }
 
     input {
       width: 100%;
-      height: 50px;
-
+      height: 48px;
       padding: 0 15px;
-
       border: 1px solid #4b5563;
-      border-radius: 8px;
-
+      border-radius: 6px;
       background: #111827;
       color: white;
-
       font-size: 15px;
       text-align: center;
-
       outline: none;
-
-      transition: 0.2s ease;
     }
 
     input:focus {
@@ -121,42 +92,26 @@
       color: #6b7280;
     }
 
-
-    /* ===== BUTTON ===== */
-
+    /* BUTTON */
     button {
       width: 100%;
-
       padding: 13px;
-
       border: none;
-      border-radius: 8px;
-
+      border-radius: 6px;
       background: #16a879;
       color: white;
-
       font-size: 14px;
-      font-weight: 600;
-
+      font-weight: bold;
       cursor: pointer;
-
-      transition: 0.2s ease;
     }
 
     button:hover {
       background: #128c65;
     }
 
-    button:active {
-      transform: scale(0.98);
-    }
-
-
-    /* ===== RESULTS ===== */
-
+    /* RESULTS */
     .result-container {
-      margin-top: 22px;
-
+      margin-top: 20px;
       max-height: 330px;
       overflow-y: auto;
     }
@@ -169,74 +124,37 @@
 
     #result p {
       padding: 11px;
-
       background: #273449;
-
       border: 1px solid #374151;
-      border-radius: 7px;
-
+      border-radius: 5px;
       color: #e5e7eb;
       font-size: 14px;
-
-      animation: fadeIn 0.25s ease forwards;
-    }
-
-    #result p:hover {
-      background: #304158;
     }
 
     .error {
       color: #ff8585 !important;
     }
 
-
-    /* ===== FOOTER ===== */
-
+    /* FOOTER */
     .footer {
-      margin-top: 23px;
-
+      margin-top: 20px;
       color: #6b7280;
       font-size: 11px;
-
       letter-spacing: 1px;
     }
 
-
-    /* ===== ANIMATION ===== */
-
-    @keyframes fadeIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-
-    /* ===== RESPONSIVE DESIGN ===== */
-
+    /* MOBILE */
     @media (max-width: 480px) {
-
-      .main-container h1 {
+      h1 {
         font-size: 23px;
       }
 
       .table-container {
-        padding: 24px 18px;
+        padding: 22px 16px;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
@@ -248,7 +166,6 @@
       Practice your mathematics with JavaScript.
     </p>
 
-
     <section class="table-container">
 
       <h2>Multiplication ×12</h2>
@@ -256,7 +173,6 @@
       <p class="description">
         Enter a number to generate its multiplication table.
       </p>
-
 
       <div class="info-container">
 
@@ -267,20 +183,16 @@
         >
 
         <button onclick="generateTable()">
-          Generate Table →
+          Generate Table
         </button>
 
       </div>
 
-
       <div class="result-container">
-
         <div id="result" aria-live="polite"></div>
-
       </div>
 
     </section>
-
 
     <footer class="footer">
       BUILT WITH JAVASCRIPT · @FASAA
@@ -288,9 +200,7 @@
 
   </main>
 
-
   <script>
-
     function generateTable() {
 
       let num = document.getElementById("num").value;
@@ -327,9 +237,7 @@
       }
 
     });
-
   </script>
 
 </body>
-
 </html>
