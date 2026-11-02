@@ -1,131 +1,238 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiplication Generator</title>
+
+  <title>Multiplication Generator | FASAA</title>
 
   <style>
-    /* ===== GLOBAL STYLES ===== */
+
+    /* ===== CSS VARIABLES ===== */
+
+    :root {
+      --background: #0b1020;
+      --surface: #141c2e;
+      --surface-light: #1b263b;
+
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+
+      --accent: #61d6a5;
+
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+
+      --border: rgba(255, 255, 255, 0.09);
+
+      --radius: 14px;
+      --transition: 0.3s ease;
+    }
+
+
+    /* ===== RESET ===== */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
+    /* ===== BODY ===== */
+
     body {
       min-height: 100vh;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+
+      padding: 25px;
+
       font-family: 'Segoe UI', sans-serif;
+
       background:
-        radial-gradient(circle at top left, #202d40, transparent 45%),
-        linear-gradient(135deg, #0f1117, #171c27);
-      color: #fff;
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(79, 70, 229, 0.16),
+          transparent 35%
+        ),
+        var(--background);
+
+      color: var(--text);
     }
 
-    /* ===== MAIN CONTAINER ===== */
+
+    /* ===== MAIN LAYOUT ===== */
+
     .main-container {
       width: 100%;
-      max-width: 430px;
+      max-width: 480px;
+    }
+
+
+    /* ===== HEADER ===== */
+
+    .header {
       text-align: center;
-    }
-
-    .main-container h1 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: #9299a8;
-      font-size: 14px;
       margin-bottom: 30px;
     }
 
-    /* ===== GLASS CARD ===== */
+    .header .tag {
+      display: inline-block;
+
+      padding: 7px 13px;
+      margin-bottom: 15px;
+
+      border: 1px solid rgba(97, 214, 165, 0.2);
+      border-radius: 30px;
+
+      background: rgba(97, 214, 165, 0.08);
+
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      font-weight: 750;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+
+    /* ===== MAIN CARD ===== */
+
     .table-container {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 30px;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 30px 25px;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .table-container h2 {
-      font-size: 20px;
-      color: #61d6a5;
-      margin-bottom: 8px;
-    }
 
-    .description {
-      color: #9da5b4;
-      font-size: 13px;
+    /* ===== CARD HEADING ===== */
+
+    .card-heading {
       margin-bottom: 25px;
     }
 
+    .card-heading h2 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .card-heading h2 span {
+      color: var(--accent);
+    }
+
+    .card-heading p {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+
     /* ===== INPUT SECTION ===== */
+
     .info-container {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
 
+    .info-container label {
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
     input {
       width: 100%;
-      height: 52px;
-      padding: 0 15px;
-      border-radius: 10px;
-      border: 1px solid #343d4c;
-      background: rgba(0, 0, 0, 0.25);
-      color: white;
+      height: 54px;
+
+      padding: 0 16px;
+
+      border: 1px solid #303b50;
+      border-radius: var(--radius);
+
+      background: #0e1627;
+
+      color: var(--text);
       font-size: 16px;
-      text-align: center;
+
       outline: none;
-      transition: 0.3s ease;
+
+      transition: var(--transition);
     }
 
     input:focus {
-      border-color: #61d6a5;
-      box-shadow: 0 0 0 3px rgba(97, 214, 165, 0.12);
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.16);
     }
 
     input::placeholder {
-      color: #737d8d;
+      color: #64748b;
     }
 
+
     /* ===== BUTTON ===== */
+
     button {
       width: 100%;
-      padding: 14px;
+
+      padding: 15px;
+
       border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #24b982, #13a16c);
+      border-radius: var(--radius);
+
+      background: var(--primary);
+
       color: white;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 650;
+
       cursor: pointer;
-      transition: 0.3s ease;
+
+      transition: var(--transition);
     }
 
     button:hover {
+      background: var(--primary-hover);
+
       transform: translateY(-2px);
-      box-shadow: 0 7px 20px rgba(36, 185, 130, 0.25);
+
+      box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
     }
 
     button:active {
       transform: scale(0.98);
     }
 
-    /* ===== RESULTS ===== */
+
+    /* ===== RESULTS SECTION ===== */
+
     .result-container {
-      margin-top: 25px;
+      margin-top: 28px;
+
       max-height: 350px;
       overflow-y: auto;
     }
@@ -133,41 +240,61 @@
     #result {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 9px;
     }
 
     #result p {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 8px;
-      padding: 11px;
-      color: #e5eaf1;
+      padding: 13px 15px;
+
+      background: var(--surface-light);
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: #e2e8f0;
+
       font-size: 15px;
-      transition: 0.2s ease;
+      font-weight: 500;
+
+      transition: var(--transition);
+
       animation: fadeIn 0.3s ease forwards;
     }
 
     #result p:hover {
-      background: rgba(97, 214, 165, 0.12);
-      border-color: rgba(97, 214, 165, 0.3);
+      background: rgba(79, 70, 229, 0.12);
+
+      border-color: rgba(79, 70, 229, 0.4);
+
+      transform: translateX(3px);
     }
 
     .error {
-      color: #ff8585;
-      font-size: 14px;
-      padding: 10px;
+      color: #ff8585 !important;
+
+      border-color: rgba(255, 100, 100, 0.2) !important;
+      background: rgba(255, 100, 100, 0.08) !important;
     }
+
 
     /* ===== FOOTER ===== */
+
     .footer {
       margin-top: 25px;
-      color: #737d8d;
-      font-size: 12px;
-      letter-spacing: 1px;
+
+      text-align: center;
+
+      color: #64748b;
+
+      font-size: 11px;
+      letter-spacing: 1.5px;
     }
 
+
     /* ===== ANIMATION ===== */
+
     @keyframes fadeIn {
+
       from {
         opacity: 0;
         transform: translateY(8px);
@@ -177,43 +304,90 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
+
     /* ===== RESPONSIVE DESIGN ===== */
+
     @media (max-width: 480px) {
-      .main-container h1 {
-        font-size: 24px;
+
+      body {
+        padding: 18px;
+      }
+
+      .header h1 {
+        font-size: 25px;
       }
 
       .table-container {
-        padding: 25px 18px;
+        padding: 24px 19px;
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
   <main class="main-container">
 
-    <h1>JavaScript Learning</h1>
-    <p class="subtitle">Practice your mathematics with JavaScript.</p>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <span class="tag">
+        JAVASCRIPT PROJECT
+      </span>
+
+      <h1>JavaScript Learning</h1>
+
+      <p>
+        Building logic through practical mathematics.
+        Learn, practice, and improve.
+      </p>
+
+    </header>
+
+
+    <!-- MAIN CARD -->
 
     <section class="table-container">
 
-      <h2>Multiplication ×12</h2>
 
-      <p class="description">
-        Enter a number to generate its multiplication table.
-      </p>
+      <!-- CARD HEADING -->
+
+      <div class="card-heading">
+
+        <h2>
+          Multiplication <span>×12</span>
+        </h2>
+
+        <p>
+          Enter any number below to generate
+          its multiplication table.
+        </p>
+
+      </div>
+
+
+      <!-- INPUT SECTION -->
 
       <div class="info-container">
+
+        <label for="num">
+          Enter your number
+        </label>
 
         <input
           type="number"
           id="num"
-          placeholder="Enter a number"
+          placeholder="e.g. 5"
+          step="any"
         >
 
         <button onclick="generateTable()">
@@ -222,17 +396,39 @@
 
       </div>
 
+
+      <!-- RESULTS -->
+
       <div class="result-container">
-        <div id="result" aria-live="polite"></div>
+
+        <div
+          id="result"
+          aria-live="polite"
+        ></div>
+
       </div>
+
 
     </section>
 
+
+    <!-- FOOTER -->
+
     <footer class="footer">
-      BUILT WITH JAVASCRIPT · @FASAA
+
+      BUILT WITH HTML · CSS · JAVASCRIPT
+
+      <br><br>
+
+      © 2026 FASAA
+
     </footer>
 
+
   </main>
+
+
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -275,6 +471,6 @@
 
   </script>
 
+
 </body>
 </html>
-
